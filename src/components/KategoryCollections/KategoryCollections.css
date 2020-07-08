@@ -1,0 +1,17 @@
+.KatCollections {
+  position: absolute;
+  width: 70%;
+  top: -5vh;
+  left: 0;
+  left: 14%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.CollectionsBackground {
+  height: 23vh;
+  top: -1vh;
+  position: relative;
+  background-color: #202020;
+}
