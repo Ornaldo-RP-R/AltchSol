@@ -176,8 +176,8 @@
 		overflow-y: scroll;
 		height: 28vh;
 		position: absolute;
-		left: 14%;
-		width: 70vw;
+		left: 23vw;
+		width: 58vw;
 	}
 	.EachGame {
 		height: 13vh;
@@ -198,7 +198,7 @@
 		top: -0.6vh;
 	}
 	.AllGames::-webkit-scrollbar {
-		width: 5px;
+		width: 2px;
 	}
 
 	.AllGames:hover::-webkit-scrollbar-thumb {
