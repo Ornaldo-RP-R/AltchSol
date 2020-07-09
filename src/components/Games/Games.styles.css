@@ -1,0 +1,213 @@
+.Games {
+  height: 23vh;
+  top: -1vh;
+  position: relative;
+  background-color: #202020;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ArrowLess {
+  position: absolute;
+  left: 7%;
+  top: 33%;
+}
+.ArrowGreater {
+  position: absolute;
+  right: 7%;
+  top: 33%;
+}
+.ArrowGreater,
+.ArrowLess {
+  color: #f5be47;
+  font-size: 1.8vw;
+  cursor: pointer;
+}
+.EachGame {
+  height: 21.5vh;
+  position: relative;
+  width: 8.5vw;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #131212;
+  color: #f3f3f3;
+}
+.EachGame img {
+  width: 8vw;
+  border-radius: 18px;
+  border: 1px solid #f4c042;
+  height: 16.5vh;
+}
+.AllGames {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 1.1vw;
+  align-items: center;
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: 0;
+  bottom: 0;
+}
+.PlayButton {
+  position: absolute;
+  top: 25%;
+  left: 28%;
+}
+.nameOfGame {
+  display: flex;
+  min-height: 4.3vh;
+  min-width: 7vw;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.player {
+  background: none;
+  width: 3.6vw;
+  height: 7vh;
+  box-sizing: border-box;
+  border-radius: 100%;
+  position: relative;
+  text-indent: -99999vw;
+  background: linear-gradient(#3cefa3, #f6fc5a);
+  cursor: pointer;
+}
+
+.player span {
+  width: 0;
+  height: 0;
+  border-top: 1.9vh solid transparent;
+  border-left: 1.4vw solid #fff;
+  border-bottom: 1.9vh solid transparent;
+  position: absolute;
+  top: 20%;
+  left: 36%;
+}
+@media only screen and (max-width: 770px) {
+  .ArrowLess {
+    left: 7%;
+    top: 39%;
+  }
+  .ArrowGreater {
+    right: 7%;
+    top: 39%;
+  }
+  .ArrowGreater,
+  .ArrowLess {
+    font-size: 2.3vw;
+  }
+  .nameOfGame {
+    top: 0vh;
+    font-size: 1.5vw;
+  }
+  .player {
+    height: 6vh;
+    top: 0.2vh;
+  }
+  .EachGame {
+    height: 20vh;
+    position: relative;
+    width: 10vw;
+    border-radius: 12px;
+  }
+  .EachGame img {
+    width: 9.5vw;
+    height: 15.5vh;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .nameOfGame {
+    font-size: 1.8vw;
+  }
+  .ArrowGreater,
+  .ArrowLess {
+    font-size: 2.9vw;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .nameOfGame {
+    font-size: 1.9vw;
+  }
+
+  .player {
+    height: 4.5vh;
+    width: 4vw;
+    top: 0.5vh;
+  }
+
+  .player span {
+    border-top: 1.05vh solid transparent;
+    border-left: 1.9vw solid #fff;
+    border-bottom: 1.5vh solid transparent;
+  }
+  .EachGame {
+    height: 17vh;
+    position: relative;
+    width: 10.6vw;
+    border-radius: 16px;
+  }
+  .EachGame img {
+    width: 9.9vw;
+    height: 12.6vh;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .nameOfGame {
+    font-size: 2vw;
+  }
+  .ArrowGreater,
+  .ArrowLess {
+    font-size: 3.8vw;
+    font-weight: bold;
+  }
+  .AllGames {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    overflow-y: scroll;
+    height: 28vh;
+    position: absolute;
+    left: 14%;
+    width: 70vw;
+  }
+  .EachGame {
+    height: 13vh;
+    position: relative;
+    width: 22vw;
+    border-radius: 16px;
+    margin: 0.6vh 0;
+  }
+  .EachGame img {
+    width: 19.8vw;
+    height: 10vh;
+  }
+  .Games {
+    height: 28vh;
+  }
+  .nameOfGame {
+    font-size: 2.6vw;
+    top: -0.6vh;
+  }
+  .AllGames::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .AllGames:hover::-webkit-scrollbar-thumb {
+    background-color: #f4c042;
+
+    outline: none;
+    border-radius: 35px;
+  }
+  .AllGames:hover::-webkit-scrollbar-track {
+    background-color: #131212;
+    outline: none;
+    border-radius: 35px;
+  }
+}

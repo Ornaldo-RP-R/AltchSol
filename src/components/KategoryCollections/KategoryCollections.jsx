@@ -13,20 +13,24 @@ const KategoryCollections = () => {
     <div>
       <div className="CollectionsBackground">
         <div className="KatCollections">
-          <Kategory
-            FirstLayer={FirstKatFirstLayer}
-            SecondLayer={FirstKat}
-            title="Live Casino"
-          />
-          ;
-          <Kategory SecondLayer={SecondKat} title={`Slots & Jackpots`} />;
-          <Kategory
-            FirstLayer={ThirdKatFirstLayer}
-            SecondLayer={ThirdKat}
-            title="Casino Games"
-          />
-          <Kategory SecondLayer={FourthKat} title="Slot Races" />;
-          <Kategory SecondLayer={FifthKat} title="JackPots" />
+          <div className="KatCollectionPart1">
+            <Kategory
+              FirstLayer={FirstKatFirstLayer}
+              SecondLayer={FirstKat}
+              title="Live Casino"
+            />
+            ;
+            <Kategory SecondLayer={SecondKat} title={`Slots & Jackpots`} />;
+          </div>
+          <div className="KatCollectionPart2">
+            <Kategory
+              FirstLayer={ThirdKatFirstLayer}
+              SecondLayer={ThirdKat}
+              title="Casino Games"
+            />
+            <Kategory SecondLayer={FourthKat} title="Slot Races" />;
+            <Kategory SecondLayer={FifthKat} title="JackPots" />
+          </div>
         </div>
       </div>
     </div>

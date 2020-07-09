@@ -1,33 +1,38 @@
 .MenuHeader {
-  position: relative;
-  height: 5.5vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: #333333;
-  padding: 0.6vh 0.4vw;
-  padding-right: 1vw;
-  box-sizing: border-box;
+	position: relative;
+	height: 5.1vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	background-color: #333333;
+	padding: 0.6vh 0.4vw;
+	padding-right: 1vw;
+	box-sizing: border-box;
 }
 .MenuHeaderSections {
-  font-size: 1.5vw;
-  color: #f3f3f3;
-  padding: 0.3vh 1vw;
-  cursor: pointer;
+	font-size: 1.5vw;
+	color: #f3f3f3;
+	padding: 0.3vh 1vw;
+	cursor: pointer;
 }
 @media only screen and (max-width: 570px) {
-  .MenuHeaderSections {
-    font-size: 1.7vw;
-  }
+	.MenuHeaderSections {
+		font-size: 1.7vw;
+	}
 }
 @media only screen and (max-width: 450px) {
-  .MenuHeaderSections {
-    font-size: 2vw;
-  }
+	.MenuHeaderSections {
+		font-size: 2vw;
+	}
+}
+@media only screen and (max-width: 350px) {
+	.MenuHeaderSections {
+		font-size: 2.4vw;
+	}
 }
 @media only screen and (max-width: 320px) {
-  .MenuHeaderSections {
-    font-size: 2.2vw;
-  }
+	.MenuHeaderSections {
+		font-size: 2.2vw;
+	}
 }
