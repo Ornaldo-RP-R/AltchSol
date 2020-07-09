@@ -38,9 +38,9 @@ const gameReducer = (state = INITIAL_STATE, action) => {
                 state.startIndexOfSlotGames,
                 state.endIndexOfSlotGames
               )
-            : state.filteredArrayForSlotGames
+            : filterArray(state.fullArrayOfGames, action.payload)
             ? findByIndexes(
-                state.filteredArrayForSlotGames,
+                filterArray(state.fullArrayOfGames, action.payload),
                 state.startIndexOfSlotGames,
                 state.endIndexOfSlotGames
               )
@@ -67,9 +67,9 @@ const gameReducer = (state = INITIAL_STATE, action) => {
                 state.startIndexOfVideoPoker,
                 state.endIndexOfVideoPoker
               )
-            : state.filteredArrayForVideoPoker
+            : filterArray(state.fullArrayOfGames, action.payload)
             ? findByIndexes(
-                state.filteredArrayForVideoPoker,
+                filterArray(state.fullArrayOfGames, action.payload),
                 state.startIndexOfVideoPoker,
                 state.endIndexOfVideoPoker
               )

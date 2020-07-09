@@ -10,13 +10,21 @@ export const findDisplayedArray = (
     return null;
   }
   let displayedArray = [];
-  if (lastIndex === ArrayToChose.length - 1 && increment === true) {
+  if (
+    (lastIndex === ArrayToChose.length && increment === true) ||
+    (increment === true && ArrayToChose.length <= 5)
+  ) {
     return null;
-  } else if (increment === false && startIndex <= 0) {
+  } else if (
+    (increment === false && startIndex <= 0) ||
+    (increment === false && ArrayToChose.length <= 5)
+  ) {
     return null;
   }
   for (let i = startIndex + 1; i <= lastIndex + 1; i++) {
-    displayedArray.push(ArrayToChose[i]);
+    if (ArrayToChose[i]) {
+      displayedArray.push(ArrayToChose[i]);
+    }
   }
   return displayedArray;
 };
@@ -36,7 +44,7 @@ export const findByIndexes = (Array, FirstIndex, LastIndex) => {
   if (!Array) {
     return null;
   }
-  let LastIndexFixed = LastIndex > Array.length ? Array.length : LastIndex;
+  let LastIndexFixed = LastIndex > Array.length - 1 ? Array.length : LastIndex;
   let newArray = [];
   for (let i = FirstIndex; i < LastIndexFixed; i++) {
     newArray.push(Array[i]);
