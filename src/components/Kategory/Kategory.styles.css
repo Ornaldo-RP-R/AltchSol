@@ -1,5 +1,5 @@
 .Kategory {
-	width: 11vw;
+	width: 11.3vw;
 	height: 25vh;
 	margin: 0 1vw;
 	background-color: #131212;
@@ -97,13 +97,13 @@
 	}
 
 	.ImageContainer {
-		min-width: 18.4vw;
+		min-width: 18vw;
 		height: 18vh;
 		border-radius: 17px;
 	}
 	.Kategory img {
 		min-width: 18vw;
-		height: 18vh;
+		height: 17.4vh;
 		border-radius: 17px;
 	}
 	.firstImage {
@@ -112,7 +112,7 @@
 	.secondImage {
 		top: -1vh;
 		height: 19vh !important;
-		min-width: 19vw;
+		min-width: 18.6vw;
 	}
 	.Kategoryname {
 		top: -1.2vh;
@@ -122,19 +122,18 @@
 }
 @media only screen and (max-width: 370px) {
 	.Kategory {
-		width: 17vw;
+		width: 17.6vw;
 		margin: 1vh 2vw;
 		height: 16vh;
 		border-radius: 13px;
 	}
 
 	.ImageContainer {
-		width: 16.4vw;
+		min-width: 15vw;
 		height: 12.5vh;
 		border-radius: 13px;
 	}
 	.Kategory img {
-		width: 16.4vw;
 		height: 12.5vh;
 		border-radius: 13px;
 	}
@@ -144,7 +143,7 @@
 	.secondImage {
 		top: -0.2vh;
 		height: 12.6vh !important;
-		min-width: 17vw;
+		min-width: 17vw !important;
 	}
 	.Kategoryname {
 		top: -1.2vh;
