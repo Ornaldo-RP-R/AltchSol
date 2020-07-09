@@ -142,7 +142,9 @@ const gameReducer = (state = INITIAL_STATE, action) => {
             state.endIndexOfSlotGames,
             action.payload
           ) !== null
-            ? state.startIndexOfSlotGames + 1
+            ? action.payload === true
+              ? state.startIndexOfSlotGames + 1
+              : state.startIndexOfSlotGames - 1
             : state.startIndexOfSlotGames,
         endIndexOfSlotGames:
           findDisplayedArray(
@@ -153,7 +155,9 @@ const gameReducer = (state = INITIAL_STATE, action) => {
             state.endIndexOfSlotGames,
             action.payload
           ) !== null
-            ? state.endIndexOfSlotGames + 1
+            ? action.payload === true
+              ? state.endIndexOfSlotGames + 1
+              : state.endIndexOfSlotGames - 1
             : state.endIndexOfSlotGames,
       };
     case GamesActionTypes.MOVE_GAMES_FOR_VIDEO_POKER:
@@ -184,7 +188,9 @@ const gameReducer = (state = INITIAL_STATE, action) => {
             state.endIndexOfVideoPoker,
             action.payload
           ) !== null
-            ? state.startIndexOfVideoPoker + 1
+            ? action.payload === true
+              ? state.startIndexOfVideoPoker + 1
+              : state.startIndexOfVideoPoker - 1
             : state.startIndexOfVideoPoker,
         endIndexOfVideoPoker:
           findDisplayedArray(
@@ -195,7 +201,9 @@ const gameReducer = (state = INITIAL_STATE, action) => {
             state.endIndexOfVideoPoker,
             action.payload
           ) !== null
-            ? state.endIndexOfVideoPoker + 1
+            ? action.payload === true
+              ? state.endIndexOfVideoPoker + 1
+              : state.endIndexOfVideoPoker - 1
             : state.endIndexOfVideoPoker,
       };
     default:
