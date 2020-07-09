@@ -6,6 +6,9 @@ export const findDisplayedArray = (
   increment
 ) => {
   let ArrayToChose = FilteredArray ? FilteredArray : Fullarray;
+  if (!Fullarray) {
+    return null;
+  }
   let displayedArray = [];
   if (lastIndex === ArrayToChose.length - 1 && increment === true) {
     return null;
@@ -18,6 +21,9 @@ export const findDisplayedArray = (
   return displayedArray;
 };
 export const filterArray = (FullArray, FilterValue) => {
+  if (!FullArray) {
+    return null;
+  }
   let newDisplayedArray = [];
   for (let i = 0; i < FullArray.length; i++) {
     if (FullArray[i].name.toLowerCase().includes(FilterValue.toLowerCase())) {
@@ -27,6 +33,9 @@ export const filterArray = (FullArray, FilterValue) => {
   return newDisplayedArray;
 };
 export const findByIndexes = (Array, FirstIndex, LastIndex) => {
+  if (!Array) {
+    return null;
+  }
   let newArray = [];
   for (let i = FirstIndex; i < LastIndex; i++) {
     newArray.push(Array[i]);

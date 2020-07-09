@@ -22,10 +22,12 @@ const Games = ({
   useEffect(() => {
     getData(ContrFunc.Controllers.casino, ContrFunc.Functions.games, null, null)
       .then(async (response) => {
-        await editDisplayedArray(findFirstDisplayedArray(response.data));
-        editFullArray(response.data);
-        setLastIndex(4);
-        setStartIndex(0);
+        if (response.data.length > 0) {
+          await editDisplayedArray(findFirstDisplayedArray(response.data));
+          editFullArray(response.data);
+          setLastIndex(4);
+          setStartIndex(0);
+        }
       })
       .catch((error) => {
         Swal.fire({
