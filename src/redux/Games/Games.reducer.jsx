@@ -31,17 +31,24 @@ const gameReducer = (state = INITIAL_STATE, action) => {
           action.payload === ""
             ? state.fullArrayOfGames
             : filterArray(state.fullArrayOfGames, action.payload),
-        displayedArrayOfSlotGames: state.filteredArrayForSlotGames
-          ? findByIndexes(
-              state.filteredArrayForSlotGames,
-              state.startIndexOfSlotGames,
-              state.endIndexOfSlotGames
-            )
-          : findByIndexes(
-              state.fullArrayOfGames,
-              state.startIndexOfSlotGames,
-              state.endIndexOfSlotGames
-            ),
+        displayedArrayOfSlotGames:
+          action.payload === ""
+            ? findByIndexes(
+                state.fullArrayOfGames,
+                state.startIndexOfSlotGames,
+                state.endIndexOfSlotGames
+              )
+            : state.filteredArrayForSlotGames
+            ? findByIndexes(
+                state.filteredArrayForSlotGames,
+                state.startIndexOfSlotGames,
+                state.endIndexOfSlotGames
+              )
+            : findByIndexes(
+                state.fullArrayOfGames,
+                state.startIndexOfSlotGames,
+                state.endIndexOfSlotGames
+              ),
       };
     case GamesActionTypes.SET_FILTER_VALUE_FOR_VIDEO_POKER:
       return {
@@ -53,17 +60,24 @@ const gameReducer = (state = INITIAL_STATE, action) => {
           action.payload === ""
             ? state.fullArrayOfGames
             : filterArray(state.fullArrayOfGames, action.payload),
-        displayedArrayOfVideoPoker: state.filteredArrayForVideoPoker
-          ? findByIndexes(
-              state.filteredArrayForVideoPoker,
-              state.startIndexOfVideoPoker,
-              state.endIndexOfVideoPoker
-            )
-          : findByIndexes(
-              state.fullArrayOfGames,
-              state.startIndexOfVideoPoker,
-              state.endIndexOfVideoPoker
-            ),
+        displayedArrayOfVideoPoker:
+          action.payload === ""
+            ? findByIndexes(
+                state.fullArrayOfGames,
+                state.startIndexOfVideoPoker,
+                state.endIndexOfVideoPoker
+              )
+            : state.filteredArrayForVideoPoker
+            ? findByIndexes(
+                state.filteredArrayForVideoPoker,
+                state.startIndexOfVideoPoker,
+                state.endIndexOfVideoPoker
+              )
+            : findByIndexes(
+                state.fullArrayOfGames,
+                state.startIndexOfVideoPoker,
+                state.endIndexOfVideoPoker
+              ),
       };
     case GamesActionTypes.SET_FIRST_INDEX_OF_SLOT_GAMES:
       return {
