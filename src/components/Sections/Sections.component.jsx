@@ -15,7 +15,7 @@ const Sections = ({ title, ImageSrc, FilteredValue, HandleChange }) => {
         />
       </div>
       <div className="title">
-        <img src={ImageSrc} />
+        <img src={ImageSrc} alt="Nothing To Show" />
         <span>{title}</span>
       </div>
     </div>

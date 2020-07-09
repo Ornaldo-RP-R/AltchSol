@@ -6,12 +6,20 @@ const Kategory = ({ FirstLayer, SecondLayer, title }) => {
       <span className="Kategoryname">{title}</span>
       {FirstLayer ? (
         <div className="ImageContainer">
-          <img className="firstImage" src={FirstLayer} />
-          <img className="secondImage" src={SecondLayer} />
+          <img className="firstImage" alt="Nothing To Show" src={FirstLayer} />
+          <img
+            className="secondImage"
+            alt="Nothing To Show"
+            src={SecondLayer}
+          />
         </div>
       ) : (
         <div className="ImageContainer">
-          <img className="secondImage" src={SecondLayer} />
+          <img
+            className="secondImage"
+            alt="Nothing To Show"
+            src={SecondLayer}
+          />
         </div>
       )}
     </div>

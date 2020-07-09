@@ -41,7 +41,7 @@ function App({
     <div className="App">
       <LoginTopHeader />
       <MenuHeader />
-      <img className="MainPhoto" src={MainPic} />
+      <img className="MainPhoto" alt="Nothing To Show" src={MainPic} />
       <KategoryCollections />
       <Sections
         title="TOP SLOT GAMES"

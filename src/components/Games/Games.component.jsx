@@ -36,7 +36,7 @@ const Games = ({
           text: "Something went wrong please contact Administrator",
         });
       });
-  }, []);
+  }, [editDisplayedArray, editFullArray, setLastIndex, setStartIndex]);
   return (
     <div className="Games">
       <div
@@ -51,6 +51,7 @@ const Games = ({
               return (
                 <div key={Game.id} className="EachGame">
                   <img
+                    alt="Nothing To Show"
                     src={Game.image}
                     onError={(e) =>
                       (e.target.src = `http://staging-casino.peoples.it/l.ashx?s=default&u=default/casino/thumbs/betsoft/AlkemorsTower.jpg`)
