@@ -12,9 +12,9 @@ const INITIAL_STATE = {
   displayedArrayOfSlotGames: null,
   displayedArrayOfVideoPoker: null,
   startIndexOfSlotGames: 0,
-  endIndexOfSlotGames: 0,
+  endIndexOfSlotGames: 5,
   startIndexOfVideoPoker: 0,
-  endIndexOfVideoPoker: 0,
+  endIndexOfVideoPoker: 5,
   filterValueForSlotGames: "",
   filterValueForVideoPoker: "",
 };
@@ -115,9 +115,8 @@ const gameReducer = (state = INITIAL_STATE, action) => {
             ? findDisplayedArray(
                 state.fullArrayOfGames,
                 state.filteredArrayForSlotGames,
-
                 state.startIndexOfSlotGames,
-                state.startIndexOfSlotGames,
+                state.endIndexOfSlotGames,
                 action.payload
               )
             : state.displayedArrayOfSlotGames,
@@ -125,7 +124,6 @@ const gameReducer = (state = INITIAL_STATE, action) => {
           findDisplayedArray(
             state.fullArrayOfGames,
             state.filteredArrayForSlotGames,
-
             state.startIndexOfSlotGames,
             state.endIndexOfSlotGames,
             action.payload
@@ -158,7 +156,6 @@ const gameReducer = (state = INITIAL_STATE, action) => {
             ? findDisplayedArray(
                 state.fullArrayOfGames,
                 state.filteredArrayForVideoPoker,
-
                 state.startIndexOfVideoPoker,
                 state.endIndexOfVideoPoker,
                 action.payload

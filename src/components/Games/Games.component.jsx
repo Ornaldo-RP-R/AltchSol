@@ -25,7 +25,7 @@ const Games = ({
         if (response.data.length > 0) {
           await editDisplayedArray(findFirstDisplayedArray(response.data));
           editFullArray(response.data);
-          setLastIndex(4);
+          setLastIndex(5);
           setStartIndex(0);
         }
       })

@@ -15,7 +15,7 @@ export const findDisplayedArray = (
   } else if (increment === false && startIndex <= 0) {
     return null;
   }
-  for (let i = startIndex + 1; i < lastIndex + 1; i++) {
+  for (let i = startIndex + 1; i <= lastIndex + 1; i++) {
     displayedArray.push(ArrayToChose[i]);
   }
   return displayedArray;
@@ -36,8 +36,9 @@ export const findByIndexes = (Array, FirstIndex, LastIndex) => {
   if (!Array) {
     return null;
   }
+  let LastIndexFixed = LastIndex > Array.length ? Array.length : LastIndex;
   let newArray = [];
-  for (let i = FirstIndex; i < LastIndex; i++) {
+  for (let i = FirstIndex; i < LastIndexFixed; i++) {
     newArray.push(Array[i]);
   }
   return newArray;

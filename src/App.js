@@ -55,7 +55,7 @@ function App({
         editDisplayedArray={editDisplayedArrayForVideoPoker}
         setStartIndex={setStartIndexForVideoPoker}
         setLastIndex={setLastIndexForVideoPoker}
-        moveGames={moveGamesForVideoPoker}
+        moveGames={moveGamesForSlotGames}
         displayedArrayOfObject={displayedArrayOfSlotGames}
       />
       <Sections
@@ -70,7 +70,7 @@ function App({
         editDisplayedArray={editDisplayedArrayForSlotGames}
         setStartIndex={setStartIndexForSlotGames}
         setLastIndex={setLastIndexForSlotGames}
-        moveGames={moveGamesForSlotGames}
+        moveGames={moveGamesForVideoPoker}
         displayedArrayOfObject={displayedArrayOfVideoPoker}
       />
     </div>
