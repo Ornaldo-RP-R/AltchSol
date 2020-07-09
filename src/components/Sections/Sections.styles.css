@@ -1,74 +1,75 @@
 .Sections {
-  position: relative;
-  top: -1vh;
-  height: 4.5vh;
-  padding: 0.3vh 0.1vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  background-color: #333333;
-  width: 100%;
-  box-sizing: border-box;
+	position: relative;
+	top: -1vh;
+	height: 4.5vh;
+	padding: 0.3vh 0.1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	background-color: #333333;
+	width: 100%;
+	box-sizing: border-box;
 }
 .title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  flex-direction: row;
-  height: 90%;
-  color: #f3f3f3;
-  font-size: 1.4vw;
-  min-width: 12%;
-  left: 8%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	flex-direction: row;
+	height: 90%;
+	color: #f3f3f3;
+	font-size: 1.4vw;
+	min-width: 12%;
+	left: 8%;
 }
 .Sections img {
-  padding: 0.1vh 1vw;
+	padding: 0.1vh 1vw;
 
-  width: 2vw;
-  height: 95%;
+	width: 2vw;
+	height: 95%;
 }
 .Search {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  position: absolute;
-  top: 10%;
-  right: 10%;
-  background-color: #202020;
-  height: 50%;
-  border-radius: 8px;
-  padding: 0.4vh 0.6vw;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	background-color: #202020;
+	height: 50%;
+	border-radius: 8px;
+	padding: 0.4vh 0.6vw;
 
-  width: 10vw;
+	width: 10vw;
 }
 .Search input {
-  outline: none;
-  border: none;
-  color: #f3f3f3;
-  padding: 0.2vh 0.6vw;
-  background-color: transparent;
+	outline: none;
+	border: none;
+	color: #f3f3f3;
+	padding: 0.2vh 0.6vw;
+	background-color: transparent;
+	overflow: hidden;
 }
 @media only screen and (max-width: 560px) {
-  .Search {
-    width: 15%;
-  }
-  .title {
-    font-size: 2vw;
-  }
-  .Sections img {
-    width: 4vw;
-  }
+	.Search {
+		width: 15%;
+	}
+	.title {
+		font-size: 2vw;
+	}
+	.Sections img {
+		width: 4vw;
+	}
 }
 @media only screen and (max-width: 400px) {
-  .Search {
-    width: 20%;
-  }
-  .title {
-    font-size: 3.2vw;
-  }
-  .Sections img {
-    width: 4.3vw;
-  }
+	.Search {
+		width: 20%;
+	}
+	.title {
+		font-size: 3.2vw;
+	}
+	.Sections img {
+		width: 4.3vw;
+	}
 }
