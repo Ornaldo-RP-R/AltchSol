@@ -11,17 +11,19 @@ export const findDisplayedArray = (
   }
   let displayedArray = [];
   if (
-    (lastIndex === ArrayToChose.length && increment === true) ||
+    (lastIndex >= ArrayToChose.length && increment === true) ||
     (increment === true && ArrayToChose.length <= 5)
   ) {
     return null;
   } else if (
-    (increment === false && startIndex <= 0) ||
+    (increment === false && startIndex <= -1) ||
     (increment === false && ArrayToChose.length <= 5)
   ) {
     return null;
   }
-  for (let i = startIndex + 1; i <= lastIndex + 1; i++) {
+  console.log(startIndex, lastIndex);
+
+  for (let i = startIndex; i < lastIndex; i++) {
     if (ArrayToChose[i]) {
       displayedArray.push(ArrayToChose[i]);
     }

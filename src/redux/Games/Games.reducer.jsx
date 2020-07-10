@@ -22,35 +22,42 @@ const INITIAL_STATE = {
 const gameReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GamesActionTypes.SET_FILTER_VALUE_FOR_SLOT_GAMES:
+      const filteredArray = filterArray(state.fullArrayOfGames, action.payload);
+      const arrayFindByIndex = findByIndexes(
+        state.fullArrayOfGames,
+        state.startIndexOfSlotGames,
+        state.endIndexOfSlotGames
+      );
       return {
         ...state,
         startIndexOfSlotGames: 0,
         endIndexOfSlotGames: 5,
         filterValueForSlotGames: action.payload,
         filteredArrayForSlotGames:
-          action.payload === ""
-            ? state.fullArrayOfGames
-            : filterArray(state.fullArrayOfGames, action.payload),
+          action.payload === "" ? state.fullArrayOfGames : filteredArray,
         displayedArrayOfSlotGames:
           action.payload === ""
-            ? findByIndexes(
+            ? arrayFindByIndex
+            : filteredArray
+            ? findDisplayedArray(
                 state.fullArrayOfGames,
-                state.startIndexOfSlotGames,
-                state.endIndexOfSlotGames
+                filteredArray,
+                0,
+                5,
+                action.payload
               )
-            : filterArray(state.fullArrayOfGames, action.payload)
-            ? findByIndexes(
-                filterArray(state.fullArrayOfGames, action.payload),
-                state.startIndexOfSlotGames,
-                state.endIndexOfSlotGames
-              )
-            : findByIndexes(
-                state.fullArrayOfGames,
-                state.startIndexOfSlotGames,
-                state.endIndexOfSlotGames
-              ),
+            : arrayFindByIndex,
       };
     case GamesActionTypes.SET_FILTER_VALUE_FOR_VIDEO_POKER:
+      const filteredArrayForVideoP = filterArray(
+        state.fullArrayOfGames,
+        action.payload
+      );
+      const FindByIndex = findByIndexes(
+        state.fullArrayOfGames,
+        state.startIndexOfVideoPoker,
+        state.endIndexOfVideoPoker
+      );
       return {
         ...state,
         startIndexOfVideoPoker: 0,
@@ -59,25 +66,19 @@ const gameReducer = (state = INITIAL_STATE, action) => {
         filteredArrayForVideoPoker:
           action.payload === ""
             ? state.fullArrayOfGames
-            : filterArray(state.fullArrayOfGames, action.payload),
+            : filteredArrayForVideoP,
         displayedArrayOfVideoPoker:
           action.payload === ""
-            ? findByIndexes(
+            ? FindByIndex
+            : filteredArrayForVideoP
+            ? findDisplayedArray(
                 state.fullArrayOfGames,
-                state.startIndexOfVideoPoker,
-                state.endIndexOfVideoPoker
+                filteredArrayForVideoP,
+                0,
+                5,
+                action.payload
               )
-            : filterArray(state.fullArrayOfGames, action.payload)
-            ? findByIndexes(
-                filterArray(state.fullArrayOfGames, action.payload),
-                state.startIndexOfVideoPoker,
-                state.endIndexOfVideoPoker
-              )
-            : findByIndexes(
-                state.fullArrayOfGames,
-                state.startIndexOfVideoPoker,
-                state.endIndexOfVideoPoker
-              ),
+            : FindByIndex,
       };
     case GamesActionTypes.SET_FIRST_INDEX_OF_SLOT_GAMES:
       return {
@@ -116,94 +117,88 @@ const gameReducer = (state = INITIAL_STATE, action) => {
         displayedArrayOfVideoPoker: action.payload,
       };
     case GamesActionTypes.MOVE_GAMES_FOR_SLOT_GAMES:
+      const displayedArray = findDisplayedArray(
+        state.fullArrayOfGames,
+        state.filteredArrayForSlotGames,
+        state.startIndexOfSlotGames,
+        state.endIndexOfSlotGames,
+        action.payload
+      );
+      const newStartIndexOfSlotGames =
+        displayedArray !== null
+          ? action.payload === true
+            ? state.startIndexOfSlotGames + 1
+            : state.startIndexOfSlotGames - 1
+          : state.startIndexOfSlotGames;
+      const newEndIndexOfSlotGames =
+        displayedArray !== null
+          ? action.payload === true
+            ? state.endIndexOfSlotGames + 1
+            : state.endIndexOfSlotGames - 1
+          : state.endIndexOfSlotGames;
+      const newDisplayedArray = findDisplayedArray(
+        state.fullArrayOfGames,
+        state.filteredArrayForSlotGames,
+        newStartIndexOfSlotGames,
+        newEndIndexOfSlotGames,
+        action.payload
+      );
       return {
         ...state,
         displayedArrayOfSlotGames:
-          findDisplayedArray(
-            state.fullArrayOfGames,
-            state.filteredArrayForSlotGames,
-            state.startIndexOfSlotGames,
-            state.endIndexOfSlotGames,
-            action.payload
-          ) !== null
-            ? findDisplayedArray(
-                state.fullArrayOfGames,
-                state.filteredArrayForSlotGames,
-                state.startIndexOfSlotGames,
-                state.endIndexOfSlotGames,
-                action.payload
-              )
+          newDisplayedArray !== null
+            ? newDisplayedArray
             : state.displayedArrayOfSlotGames,
         startIndexOfSlotGames:
-          findDisplayedArray(
-            state.fullArrayOfGames,
-            state.filteredArrayForSlotGames,
-            state.startIndexOfSlotGames,
-            state.endIndexOfSlotGames,
-            action.payload
-          ) !== null
-            ? action.payload === true
-              ? state.startIndexOfSlotGames + 1
-              : state.startIndexOfSlotGames - 1
+          newDisplayedArray !== null
+            ? newStartIndexOfSlotGames
             : state.startIndexOfSlotGames,
         endIndexOfSlotGames:
-          findDisplayedArray(
-            state.fullArrayOfGames,
-            state.filteredArrayForSlotGames,
-
-            state.startIndexOfSlotGames,
-            state.endIndexOfSlotGames,
-            action.payload
-          ) !== null
-            ? action.payload === true
-              ? state.endIndexOfSlotGames + 1
-              : state.endIndexOfSlotGames - 1
+          newDisplayedArray !== null
+            ? newEndIndexOfSlotGames
             : state.endIndexOfSlotGames,
       };
     case GamesActionTypes.MOVE_GAMES_FOR_VIDEO_POKER:
+      const DisplayedArray = findDisplayedArray(
+        state.fullArrayOfGames,
+        state.filteredArrayForVideoPoker,
+        state.startIndexOfVideoPoker,
+        state.endIndexOfVideoPoker,
+        action.payload
+      );
+      const newstartIndexOfVideoPoker =
+        DisplayedArray !== null
+          ? action.payload === true
+            ? state.startIndexOfVideoPoker + 1
+            : state.startIndexOfVideoPoker - 1
+          : state.startIndexOfVideoPoker;
+      const newendIndexOfVideoPoker =
+        DisplayedArray !== null
+          ? action.payload === true
+            ? state.endIndexOfVideoPoker + 1
+            : state.endIndexOfVideoPoker - 1
+          : state.endIndexOfVideoPoker;
+
+      const newDisplayedArrayP = findDisplayedArray(
+        state.fullArrayOfGames,
+        state.filteredArrayForVideoPoker,
+        newstartIndexOfVideoPoker,
+        newendIndexOfVideoPoker,
+        action.payload
+      );
       return {
         ...state,
         displayedArrayOfVideoPoker:
-          findDisplayedArray(
-            state.fullArrayOfGames,
-            state.filteredArrayForVideoPoker,
-            state.startIndexOfVideoPoker,
-            state.endIndexOfVideoPoker,
-            action.payload
-          ) !== null
-            ? findDisplayedArray(
-                state.fullArrayOfGames,
-                state.filteredArrayForVideoPoker,
-                state.startIndexOfVideoPoker,
-                state.endIndexOfVideoPoker,
-                action.payload
-              )
+          newDisplayedArrayP !== null
+            ? newDisplayedArrayP
             : state.displayedArrayOfVideoPoker,
         startIndexOfVideoPoker:
-          findDisplayedArray(
-            state.fullArrayOfGames,
-            state.filteredArrayForVideoPoker,
-
-            state.startIndexOfVideoPoker,
-            state.endIndexOfVideoPoker,
-            action.payload
-          ) !== null
-            ? action.payload === true
-              ? state.startIndexOfVideoPoker + 1
-              : state.startIndexOfVideoPoker - 1
+          newDisplayedArrayP !== null
+            ? newstartIndexOfVideoPoker
             : state.startIndexOfVideoPoker,
         endIndexOfVideoPoker:
-          findDisplayedArray(
-            state.fullArrayOfGames,
-            state.filteredArrayForVideoPoker,
-
-            state.startIndexOfVideoPoker,
-            state.endIndexOfVideoPoker,
-            action.payload
-          ) !== null
-            ? action.payload === true
-              ? state.endIndexOfVideoPoker + 1
-              : state.endIndexOfVideoPoker - 1
+          newDisplayedArrayP !== null
+            ? newendIndexOfVideoPoker
             : state.endIndexOfVideoPoker,
       };
     default:
